@@ -1,0 +1,90 @@
+{
+  "name": "spyder-runner",
+  "displayName": "Spyder Runner",
+  "description": "Send code from VS Code to Spyder for execution",
+  "version": "0.3.0",
+  "publisher": "kerrydu",
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kerrydu/runspyder"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:spyder-runner.runSelection",
+    "onCommand:spyder-runner.runToCursor",
+    "onCommand:spyder-runner.runFromCursorToEnd"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Spyder Runner",
+      "properties": {
+        "SpyderRunner.SpyderPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to Spyder executable [Windows only]"
+        }
+
+      }
+    },
+    "commands": [
+      {
+        "command": "spyder-runner.runSelection",
+        "title": "Run Selection in Spyder"
+      },
+      {
+        "command": "spyder-runner.runToCursor",
+        "title": "Run To Cursor in Spyder"
+      },
+      {
+        "command": "spyder-runner.runFromCursorToEnd",
+        "title": "Run From Cursor To End in Spyder"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "spyder-runner.runSelection",
+        "key": "ctrl+enter",
+        "mac": "cmd+enter",
+        "when": "editorTextFocus && (editorLangId == python || editorLangId == py)"
+      },
+      {
+        "command": "spyder-runner.runToCursor",
+        "key": "ctrl+alt+enter",
+        "mac": "cmd+option+enter",
+        "when": "editorTextFocus && (editorLangId == python || editorLangId == py)"
+      },
+      {
+        "command": "spyder-runner.runFromCursorToEnd",
+        "key": "ctrl+alt+\\",
+        "mac": "ctrl+option+\\",
+        "when": "editorTextFocus && (editorLangId == python || editorLangId == py)"
+      }
+    ]
+  },
+  "files": [
+    "extension.js"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "16.x",
+    "eslint": "^8.0.0",
+    "glob": "^8.0.0",
+    "mocha": "^10.0.0",
+    "typescript": "^4.9.3",
+    "@vscode/test-electron": "^2.2.0"
+  }
+}
