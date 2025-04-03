@@ -1,11 +1,11 @@
 on run
-    tell application "System Events 6"
+    tell application "System Events"
         -- 检查Spyder是否已运行
         set isSpyderRunning to exists (processes where name is "Spyder")
         
         if isSpyderRunning then
             -- 激活Spyder
-            tell application "Spyder 6" to activate
+            tell application "Spyder" to activate
             delay 0.5
             -- 粘贴代码
             try
@@ -15,7 +15,7 @@ on run
             end try
         else
             -- 提示用户手动打开Spyder
-            display dialog "请手动打开Spyder 6" 
+            display dialog "请手动打开Spyder" 
         end if
     end tell
 end run
