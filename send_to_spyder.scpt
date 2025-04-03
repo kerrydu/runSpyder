@@ -5,7 +5,7 @@ on run
         
         if isSpyderRunning then
             -- 激活Spyder
-            tell application "Spyder" to activate
+            tell application "Spyder 6" to activate
             delay 0.5
             -- 粘贴代码
             set retryCount to 0
@@ -22,7 +22,7 @@ on run
             end repeat
         else
             -- 提示用户手动打开Spyder
-            display dialog "请手动打开Spyder" with icon stop buttons {"OK"}
+            display dialog "请手动打开Spyder 6" buttons {"OK"} default button "OK" with icon stop
         end if
     end tell
 end run
