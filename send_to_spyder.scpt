@@ -22,7 +22,7 @@ on run
             end repeat
         else
             -- 提示用户手动打开Spyder
-            display dialog "请手动打开Spyder 6" buttons {"OK"} default button "OK" with icon stop
+            display dialog "请手动打开Spyder 6" 
         end if
     end tell
 end run
