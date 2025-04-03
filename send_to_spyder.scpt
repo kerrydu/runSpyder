@@ -1,7 +1,5 @@
 on run
     tell application "System Events"
-    
-    tell application "System Events"
         -- 检查Spyder是否已运行
         set isSpyderRunning to exists (processes where name is "Spyder")
         
@@ -27,10 +25,10 @@ on run
             tell application "Spyder" to activate
             
             -- 等待Spyder启动
-            set timeout to 10
+            set timeoutSeconds to 10
             set startTime to current date
             repeat
-                if (current date) - startTime > timeout then
+                if (current date) - startTime > timeoutSeconds then
                     display dialog "Spyder failed to start within " & timeout & " seconds!" with icon stop buttons {"OK"}
                     error number -128
                 end if
