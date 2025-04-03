@@ -29,7 +29,7 @@ on run
             set startTime to current date
             repeat
                 if (current date) - startTime > timeoutSeconds then
-                    display dialog "Spyder failed to start within " & timeout & " seconds!" with icon stop buttons {"OK"}
+                    display dialog "Spyder failed to start within " & timeoutSeconds & " seconds!" with icon stop buttons {"OK"}
                     error number -128
                 end if
                 
